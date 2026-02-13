@@ -18,7 +18,7 @@ export default function Task({ id, title, description, isComplet, completTask, d
     return (
         <article
             className={clsx(
-                'bg-secund-100 grid-task-sm md:grid-task-lg grid gap-4 rounded-xl p-4 shadow-[0_0_1rem_hsl(from_var(--color-text-400)_h_s_l/0.25)]',
+                'bg-secund-100 grid-task-sm md:grid-task-lg print:text-text-100 grid gap-4 rounded-xl p-4 not-print:shadow-[0_0_1rem_hsl(from_var(--color-text-400)_h_s_l/0.25)] print:border-2',
                 emerge ? 'animate-explosion' : 'animate-implosion',
             )}
             onAnimationEnd={onAnimationEnd}
@@ -33,7 +33,7 @@ export default function Task({ id, title, description, isComplet, completTask, d
                 {isComplet ? 'Finished' : 'Pending'}
             </span>
             <p className='text-text-100 col-[1/3] text-lg'>{description}</p>
-            <div className='col-span-full row-start-3 flex items-center gap-4 md:col-start-3 md:row-span-full'>
+            <div className='col-span-full row-start-3 flex items-center gap-4 md:col-start-3 md:row-span-full print:hidden'>
                 <button
                     className='btn flex-1 py-6 disabled:cursor-not-allowed disabled:opacity-50 md:aspect-square'
                     onClick={() => completTask(id)}
