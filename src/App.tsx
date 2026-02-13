@@ -46,6 +46,18 @@ export default function App() {
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }, [tasks]);
 
+    useEffect(() => {
+        function handleKeyDown(event: KeyboardEvent): void {
+            if (event.ctrlKey && event.key === 'm') {
+                event.preventDefault();
+                setAddTask(true);
+            }
+        }
+
+        document.addEventListener('keydown', handleKeyDown);
+        return () => document.removeEventListener('keydown', handleKeyDown);
+    }, []);
+
     return (
         <div className='wrapper'>
             {onAddTask && <New setAddTask={setAddTask} addNewTask={addNewTask} />}
