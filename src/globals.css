@@ -1,0 +1,80 @@
+@import 'tailwindcss';
+
+:root {
+    --first-color: skyblue;
+    --secund-color: #eeeeff;
+    --text-color: #303040;
+}
+
+@theme inline {
+    --color-first-25: hsl(from var(--first-color) h s calc(l - 10));
+    --color-first-50: hsl(from var(--first-color) h s calc(l - 5));
+    --color-first-100: hsl(from var(--first-color) h s l);
+    --color-first-200: hsl(from var(--first-color) h s calc(l + 5));
+    --color-first-400: hsl(from var(--first-color) h s calc(l + 10));
+
+    --color-secund-25: hsl(from var(--secund-color) h s calc(l - 10));
+    --color-secund-50: hsl(from var(--secund-color) h s calc(l - 5));
+    --color-secund-100: hsl(from var(--secund-color) h s l);
+    --color-secund-200: hsl(from var(--secund-color) h s calc(l + 5));
+    --color-secund-400: hsl(from var(--secund-color) h s calc(l + 10));
+
+    --color-text-25: hsl(from var(--text-color) h s calc(l - 10));
+    --color-text-50: hsl(from var(--text-color) h s calc(l - 5));
+    --color-text-100: hsl(from var(--text-color) h s l);
+    --color-text-200: hsl(from var(--text-color) h s calc(l + 5));
+    --color-text-400: hsl(from var(--text-color) h s calc(l + 10));
+
+    --shadow-md: 0 3px 0 var(--color-first-100);
+    --shadow-lg: 0 6px 0 var(--color-first-100);
+}
+
+@layer base {
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    .wrapper {
+        min-height: 100vh;
+        background-image: linear-gradient(to bottom, var(--color-first-400), var(--secund-color));
+    }
+}
+
+@layer components {
+    .btn {
+        @apply from-first-25 text-text-100 to-first-400 -translate-y-0.75 cursor-pointer rounded-lg bg-linear-to-br px-8 py-2 text-xl font-semibold shadow-md transition-all duration-50 hover:-translate-y-1.5 hover:shadow-lg active:translate-none active:shadow-none
+    }
+}
+
+@layer utilities {
+    .animate-fade-in {
+        animation: fade-in 100ms ease-in-out forwards;
+    }
+
+    .animate-fade-out {
+        animation: fade-out 100ms ease-in-out forwards;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
