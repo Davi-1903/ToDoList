@@ -4,3 +4,8 @@ export interface Task {
     description: string;
     isComplet: boolean;
 }
+
+export interface addNewTaskParams {
+    title: string;
+    description: string;
+}
