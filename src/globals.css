@@ -6,6 +6,12 @@
     --text-color: #303040;
 }
 
+.dark {
+    --first-color: #12deff;
+    --secund-color: #00001c;
+    --text-color: #d0d0c0;
+}
+
 @theme inline {
     --color-first-25: hsl(from var(--first-color) h s calc(l - 10));
     --color-first-50: hsl(from var(--first-color) h s calc(l - 5));
@@ -25,8 +31,8 @@
     --color-text-200: hsl(from var(--text-color) h s calc(l + 5));
     --color-text-400: hsl(from var(--text-color) h s calc(l + 10));
 
-    --shadow-md: 0 3px 0 var(--color-first-25);
-    --shadow-lg: 0 6px 0 var(--color-first-25);
+    --shadow-base: 0 3px 0 var(--color-first-25);
+    --shadow-secund: 0 6px 0 var(--color-first-25);
 }
 
 @layer base {
@@ -46,7 +52,7 @@
 
 @layer components {
     .btn {
-        @apply from-first-25 text-secund-100 to-first-200 -translate-y-0.75 cursor-pointer rounded-lg bg-linear-to-br px-8 py-2 text-xl font-semibold shadow-md transition-all duration-50 hover:not-disabled:-translate-y-1.5 hover:not-disabled:shadow-lg active:not-disabled:translate-none active:not-disabled:shadow-none;
+        @apply from-first-25 text-secund-100 to-first-200 dark:from-first-100 dark:to-first-400 -translate-y-0.75 cursor-pointer rounded-lg bg-linear-to-br px-8 py-2 text-xl font-semibold shadow-base transition-all duration-50 hover:not-disabled:-translate-y-1.5 hover:not-disabled:shadow-secund active:not-disabled:translate-none active:not-disabled:shadow-none;
     }
 }
 
@@ -115,3 +121,5 @@
         transform: scale(0);
     }
 }
+
+@custom-variant dark (&:where(.dark, .dark *));

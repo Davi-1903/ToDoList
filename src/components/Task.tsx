@@ -18,7 +18,7 @@ export default function Task({ id, title, description, isComplet, completTask, d
     return (
         <article
             className={clsx(
-                'bg-secund-100 grid-task-sm md:grid-task-lg print:text-text-100 grid gap-4 rounded-xl p-4 not-print:shadow-[0_0_1rem_hsl(from_var(--color-text-400)_h_s_l/0.25)] print:border-2',
+                'bg-secund-100 grid-task-sm md:grid-task-lg print:text-text-100 not-print:shadow-secund-50/50 grid gap-4 rounded-xl p-4 not-print:shadow-lg print:border-2',
                 emerge ? 'animate-explosion' : 'animate-implosion',
             )}
             onAnimationEnd={onAnimationEnd}
@@ -38,6 +38,7 @@ export default function Task({ id, title, description, isComplet, completTask, d
                     className='btn flex-1 py-6 disabled:cursor-not-allowed disabled:opacity-50 md:aspect-square'
                     onClick={() => completTask(id)}
                     disabled={isComplet}
+                    title={`Complet ${title}`}
                 >
                     <IconCheck size={32} className='stroke-secund-100 mx-auto' />
                 </button>
@@ -45,6 +46,7 @@ export default function Task({ id, title, description, isComplet, completTask, d
                     className='btn flex-1 py-6 disabled:cursor-not-allowed disabled:opacity-50 md:aspect-square'
                     onClick={handleDelete}
                     disabled={!isComplet}
+                    title={`Delete ${title}`}
                 >
                     <IconTrash size={32} className='stroke-secund-100 mx-auto' />
                 </button>

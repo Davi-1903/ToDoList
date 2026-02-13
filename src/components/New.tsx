@@ -10,7 +10,7 @@ function New({ setAddTask, addNewTask }: NewProps) {
 
     function handleSubmit(event: SubmitEvent): void {
         event.preventDefault();
-        addNewTask({ title, description });
+        addNewTask(title, description);
         setClose(true);
     }
 
@@ -42,13 +42,16 @@ function New({ setAddTask, addNewTask }: NewProps) {
     return (
         <article
             className={clsx(
-                'bg-text-100/25 fixed inset-0 z-2 grid place-items-center p-6 shadow-[0_0_1rem_hsl(from_var(--color-text-400)_h_s_l/0.25)] backdrop-blur-sm',
+                'fixed inset-0 z-2 grid place-items-center p-6 backdrop-blur-2xl',
                 isClose ? 'animate-fade-out' : 'animate-fade-in',
             )}
             onAnimationEnd={onAnimationEnd}
             onSubmit={handleSubmit}
         >
-            <form ref={formRef} className='bg-secund-100 flex w-full max-w-sm flex-col gap-6 rounded-2xl px-4 py-6'>
+            <form
+                ref={formRef}
+                className='bg-secund-100 flex w-full max-w-sm flex-col gap-6 rounded-2xl px-4 py-6 shadow-xl shadow-black/25'
+            >
                 <h2 className='text-text-100 text-3xl font-bold'>New Task</h2>
                 <div>
                     <label htmlFor='title' className='text-text-100 text-lg'>
@@ -57,7 +60,7 @@ function New({ setAddTask, addNewTask }: NewProps) {
                     <input
                         type='text'
                         id='title'
-                        className='bg-secund-50 text-text-100 border-first-100 block min-h-12 w-full rounded-lg px-4 transition-all duration-100 outline-none focus:border-b-3'
+                        className='bg-secund-50 dark:bg-secund-200 text-text-100 border-first-100 block min-h-12 w-full rounded-lg px-4 transition-all duration-100 outline-none focus:border-b-3'
                         value={title}
                         onChange={e => setTitle(e.target.value)}
                         autoFocus
@@ -71,7 +74,7 @@ function New({ setAddTask, addNewTask }: NewProps) {
                     <input
                         type='text'
                         id='description'
-                        className='bg-secund-50 text-text-100 border-first-100 block min-h-12 w-full rounded-lg px-4 transition-all duration-100 outline-none focus:border-b-3'
+                        className='bg-secund-50 text-text-200 dark:bg-secund-200 border-first-100 block min-h-12 w-full rounded-lg px-4 transition-all duration-100 outline-none focus:border-b-3'
                         value={description}
                         onChange={e => setDescription(e.target.value)}
                     />

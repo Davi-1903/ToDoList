@@ -3,14 +3,16 @@ import { IconDownload, IconUpload } from '@tabler/icons-react';
 import Header from './components/Header';
 import New from './components/New';
 import ListTasks from './components/ListTasks';
-import type { addNewTaskParams, Task } from './interfaces/Objects';
+import type { Task } from './interfaces/Objects';
 
 export default function App() {
     const [onAddTask, setAddTask] = useState(false);
-    const [tasks, setTasks] = useState<Task[]>(() => {
+    const [tasks, setTasks] = useState<Task[]>(loadTasks);
+
+    function loadTasks(): Task[] {
         const storage = localStorage.getItem('tasks');
         return storage ? JSON.parse(storage) : [];
-    });
+    }
 
     async function copyTasks(): Promise<void> {
         if (tasks.length === 0) return;
@@ -23,7 +25,7 @@ export default function App() {
         }
     }
 
-    async function loadTasks(): Promise<void> {
+    async function pasteTasks(): Promise<void> {
         try {
             const tasks = await navigator.clipboard.readText();
             if (tasks) setTasks(JSON.parse(tasks));
@@ -32,7 +34,7 @@ export default function App() {
         }
     }
 
-    function addNewTask({ title, description }: addNewTaskParams): void {
+    function addNewTask(title: string, description: string): void {
         setTasks(prev => [
             ...prev,
             {
@@ -85,11 +87,11 @@ export default function App() {
             <Header setAddTask={setAddTask} />
             <main className='mx-auto max-w-6xl p-6'>
                 <ListTasks tasks={tasks} completTask={completTask} deleteTask={deleteTask} />
-                <article className='fixed right-4 bottom-4'>
-                    <button className='btn mb-4 block aspect-square p-4' onClick={loadTasks}>
+                <article className='fixed right-4 bottom-4 print:hidden'>
+                    <button className='btn mb-4 block aspect-square p-4' onClick={pasteTasks} title='Paste tasks'>
                         <IconUpload />
                     </button>
-                    <button className='btn block aspect-square p-4' onClick={copyTasks}>
+                    <button className='btn block aspect-square p-4' onClick={copyTasks} title='Copy tasks'>
                         <IconDownload />
                     </button>
                 </article>

@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from 'react';
-import type { addNewTaskParams, Task } from './Objects';
+import type { Task } from './Objects';
 
 export interface HeaderProps {
     setAddTask: Dispatch<SetStateAction<boolean>>;
@@ -7,7 +7,7 @@ export interface HeaderProps {
 
 export interface NewProps {
     setAddTask: Dispatch<SetStateAction<boolean>>;
-    addNewTask: ({ title, description }: addNewTaskParams) => void;
+    addNewTask: (title: string, description: string) => void;
 }
 
 export interface TaskProps {
