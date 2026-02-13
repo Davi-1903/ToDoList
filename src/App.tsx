@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { IconDownload, IconUpload } from '@tabler/icons-react';
 import Header from './components/Header';
 import New from './components/New';
 import ListTasks from './components/ListTasks';
@@ -10,6 +11,26 @@ export default function App() {
         const storage = localStorage.getItem('tasks');
         return storage ? JSON.parse(storage) : [];
     });
+
+    async function copyTasks(): Promise<void> {
+        if (tasks.length === 0) return;
+
+        try {
+            await navigator.clipboard.writeText(JSON.stringify(tasks));
+            alert('Tasks copiadas para a área de transferencia');
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    async function loadTasks(): Promise<void> {
+        try {
+            const tasks = await navigator.clipboard.readText();
+            if (tasks) setTasks(JSON.parse(tasks));
+        } catch (err) {
+            console.error(err);
+        }
+    }
 
     function addNewTask({ title, description }: addNewTaskParams): void {
         setTasks(prev => [
@@ -64,6 +85,14 @@ export default function App() {
             <Header setAddTask={setAddTask} />
             <main className='mx-auto max-w-6xl p-6'>
                 <ListTasks tasks={tasks} completTask={completTask} deleteTask={deleteTask} />
+                <article className='fixed right-4 bottom-4'>
+                    <button className='btn mb-4 block aspect-square p-4' onClick={loadTasks}>
+                        <IconUpload />
+                    </button>
+                    <button className='btn block aspect-square p-4' onClick={copyTasks}>
+                        <IconDownload />
+                    </button>
+                </article>
             </main>
         </div>
     );
