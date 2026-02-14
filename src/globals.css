@@ -7,8 +7,8 @@
 }
 
 .dark {
-    --first-color: #12deff;
-    --secund-color: #00001c;
+    --first-color: #56a5dd;
+    --secund-color: #0c1117;
     --text-color: #d0d0c0;
 }
 
@@ -52,7 +52,7 @@
 
 @layer components {
     .btn {
-        @apply from-first-25 text-secund-100 to-first-200 dark:from-first-100 dark:to-first-400 -translate-y-0.75 cursor-pointer rounded-lg bg-linear-to-br px-8 py-2 text-xl font-semibold shadow-base transition-all duration-50 hover:not-disabled:-translate-y-1.5 hover:not-disabled:shadow-secund active:not-disabled:translate-none active:not-disabled:shadow-none;
+        @apply from-first-25 text-secund-100 to-first-200 dark:from-first-100 dark:to-first-400 shadow-base hover:not-disabled:shadow-secund -translate-y-0.75 cursor-pointer rounded-lg bg-linear-to-br px-8 py-2 text-xl font-semibold transition-all duration-50 hover:not-disabled:-translate-y-1.5 active:not-disabled:translate-none active:not-disabled:shadow-none;
     }
 }
 

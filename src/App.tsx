@@ -87,7 +87,9 @@ export default function App() {
             <Header setAddTask={setAddTask} />
             <main className='mx-auto max-w-6xl p-6'>
                 <ListTasks tasks={tasks} completTask={completTask} deleteTask={deleteTask} />
-                <article className='fixed right-4 bottom-4 print:hidden'>
+                <article className='bg-secund-100 fixed right-0 bottom-0 rounded-tl-2xl p-4 print:hidden'>
+                    <div className='bg-secund-100 absolute -top-4 right-0 aspect-square h-4 mask-radial-from-transparent mask-radial-from-4 mask-radial-to-black mask-radial-to-4 mask-radial-at-top-left'></div>
+                    <div className='bg-secund-100 absolute bottom-0 -left-4 aspect-square h-4 mask-radial-from-transparent mask-radial-from-4 mask-radial-to-black mask-radial-to-4 mask-radial-at-top-left'></div>
                     <button className='btn mb-4 block aspect-square p-4' onClick={pasteTasks} title='Paste tasks'>
                         <IconUpload />
                     </button>
