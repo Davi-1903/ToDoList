@@ -24,3 +24,8 @@ export interface ListTasksProps {
     completTask: (id: number) => void;
     deleteTask: (id: number) => void;
 }
+
+export interface ActionsProps {
+    pasteTasks: () => Promise<void>;
+    copyTasks: () => Promise<void>;
+}

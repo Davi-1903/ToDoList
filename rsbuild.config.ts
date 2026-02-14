@@ -6,5 +6,13 @@ export default defineConfig({
     plugins: [pluginReact()],
     html: {
         title: 'ToDoList',
+        tags: [
+            {
+                tag: 'html',
+                attrs: {
+                    lang: 'pt-BR',
+                },
+            },
+        ],
     },
 });

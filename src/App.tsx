@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { IconDownload, IconUpload } from '@tabler/icons-react';
 import Header from './components/Header';
 import New from './components/New';
 import ListTasks from './components/ListTasks';
+import Actions from './components/Actions';
 import type { Task } from './interfaces/Objects';
 
 export default function App() {
@@ -87,16 +87,7 @@ export default function App() {
             <Header setAddTask={setAddTask} />
             <main className='mx-auto max-w-6xl p-6'>
                 <ListTasks tasks={tasks} completTask={completTask} deleteTask={deleteTask} />
-                <article className='fixed right-0 bottom-0 rounded-tl-2xl bg-secund-100 p-4 print:hidden'>
-                    <div className='absolute -top-4 right-0 aspect-square h-4 bg-secund-100 mask-radial-from-transparent mask-radial-from-4 mask-radial-to-black mask-radial-to-4 mask-radial-at-top-left'></div>
-                    <div className='absolute bottom-0 -left-4 aspect-square h-4 bg-secund-100 mask-radial-from-transparent mask-radial-from-4 mask-radial-to-black mask-radial-to-4 mask-radial-at-top-left'></div>
-                    <button className='btn mb-4 block aspect-square p-4' onClick={pasteTasks} title='Paste tasks'>
-                        <IconUpload />
-                    </button>
-                    <button className='btn block aspect-square p-4' onClick={copyTasks} title='Copy tasks'>
-                        <IconDownload />
-                    </button>
-                </article>
+                <Actions pasteTasks={pasteTasks} copyTasks={copyTasks} />
             </main>
         </div>
     );
