@@ -4,5 +4,7 @@
     "jsxSingleQuote": true,
     "arrowParens": "avoid",
     "printWidth": 120,
+    "tailwindStylesheet": "./src/globals.css",
+    "tailwindFunctions": ["clsx"],
     "plugins": ["prettier-plugin-tailwindcss"]
 }

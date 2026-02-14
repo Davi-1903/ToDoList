@@ -52,7 +52,7 @@
 
 @layer components {
     .btn {
-        @apply from-first-25 text-secund-100 to-first-200 dark:from-first-100 dark:to-first-400 shadow-base hover:not-disabled:shadow-secund -translate-y-0.75 cursor-pointer rounded-lg bg-linear-to-br px-8 py-2 text-xl font-semibold transition-all duration-50 hover:not-disabled:-translate-y-1.5 active:not-disabled:translate-none active:not-disabled:shadow-none;
+        @apply -translate-y-0.75 cursor-pointer rounded-lg bg-linear-to-br from-first-25 to-first-200 px-8 py-2 text-xl font-semibold text-secund-100 shadow-base transition-all duration-50 hover:not-disabled:-translate-y-1.5 hover:not-disabled:shadow-secund active:not-disabled:translate-none active:not-disabled:shadow-none dark:from-first-100 dark:to-first-400;
     }
 }
 

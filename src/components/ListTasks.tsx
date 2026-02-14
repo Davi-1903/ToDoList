@@ -4,7 +4,7 @@ import Task from './Task';
 export default function ListTasks({ tasks, completTask, deleteTask }: ListTasksProps) {
     if (tasks.length === 0)
         return (
-            <h1 className='text-text-100 dark:text-secund-100 text-center text-2xl font-bold md:text-4xl'>
+            <h1 className='text-center text-2xl font-bold text-text-100 md:text-4xl dark:text-secund-100'>
                 There are no tasks
             </h1>
         );

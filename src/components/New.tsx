@@ -50,17 +50,17 @@ function New({ setAddTask, addNewTask }: NewProps) {
         >
             <form
                 ref={formRef}
-                className='bg-secund-100 flex w-full max-w-sm flex-col gap-6 rounded-2xl px-4 py-6 shadow-xl shadow-black/25'
+                className='flex w-full max-w-sm flex-col gap-6 rounded-2xl bg-secund-100 px-4 py-6 shadow-xl shadow-black/25'
             >
-                <h2 className='text-text-100 text-3xl font-bold'>New Task</h2>
+                <h2 className='text-3xl font-bold text-text-100'>New Task</h2>
                 <div>
-                    <label htmlFor='title' className='text-text-100 text-lg'>
+                    <label htmlFor='title' className='text-lg text-text-100'>
                         Title
                     </label>
                     <input
                         type='text'
                         id='title'
-                        className='bg-secund-50 dark:bg-secund-200 text-text-100 border-first-100 block min-h-12 w-full rounded-lg px-4 transition-all duration-100 outline-none focus:border-b-3'
+                        className='block min-h-12 w-full rounded-lg border-first-100 bg-secund-50 px-4 text-text-100 transition-all duration-100 outline-none focus:border-b-3 dark:bg-secund-200'
                         value={title}
                         onChange={e => setTitle(e.target.value)}
                         autoFocus
@@ -68,13 +68,13 @@ function New({ setAddTask, addNewTask }: NewProps) {
                     />
                 </div>
                 <div>
-                    <label htmlFor='description' className='text-text-100 text-lg'>
+                    <label htmlFor='description' className='text-lg text-text-100'>
                         Description
                     </label>
                     <input
                         type='text'
                         id='description'
-                        className='bg-secund-50 text-text-200 dark:bg-secund-200 border-first-100 block min-h-12 w-full rounded-lg px-4 transition-all duration-100 outline-none focus:border-b-3'
+                        className='block min-h-12 w-full rounded-lg border-first-100 bg-secund-50 px-4 text-text-200 transition-all duration-100 outline-none focus:border-b-3 dark:bg-secund-200'
                         value={description}
                         onChange={e => setDescription(e.target.value)}
                     />

@@ -1,5 +1,6 @@
 import { memo, useEffect, useState } from 'react';
 import { IconMoon, IconSun } from '@tabler/icons-react';
+import Logo from '../../public/logo.svg';
 import type { HeaderProps } from '../interfaces/Props';
 import type { Theme } from '../interfaces/Objects';
 
@@ -27,8 +28,8 @@ function Header({ setAddTask }: HeaderProps) {
     }, [theme]);
 
     return (
-        <header className='bg-secund-100 shadow-secund-50/50 sticky top-0 z-1 flex justify-between p-4 shadow-lg md:px-8 md:py-6 print:hidden'>
-            <h1 className='text-text-100 text-3xl font-bold md:text-4xl'>Tasks</h1>
+        <header className='sticky top-0 z-1 flex justify-between bg-secund-100 p-4 shadow-lg shadow-secund-50/50 md:px-8 md:py-6 print:hidden'>
+            <img src={Logo} alt='Logo' className='h-10' />
             <div className='flex gap-6'>
                 <button
                     className='btn px-6 text-sm md:px-8 md:text-xl'

@@ -18,12 +18,12 @@ export default function Task({ id, title, description, isComplet, completTask, d
     return (
         <article
             className={clsx(
-                'bg-secund-100 grid-task-sm md:grid-task-lg print:text-text-100 not-print:shadow-secund-50/50 grid gap-4 rounded-xl p-4 not-print:shadow-lg print:border-2',
+                'grid gap-4 rounded-xl bg-secund-100 p-4 grid-task-sm not-print:shadow-lg not-print:shadow-secund-50/50 md:grid-task-lg print:border-2 print:text-text-100',
                 emerge ? 'animate-explosion' : 'animate-implosion',
             )}
             onAnimationEnd={onAnimationEnd}
         >
-            <h2 className='text-text-100 text-2xl font-bold'>{title}</h2>
+            <h2 className='text-2xl font-bold text-text-100'>{title}</h2>
             <span
                 className={clsx('h-fit rounded-xl border-2 px-4 py-2 text-sm font-semibold', {
                     'border-green-400 text-green-400': isComplet,
@@ -32,7 +32,7 @@ export default function Task({ id, title, description, isComplet, completTask, d
             >
                 {isComplet ? 'Finished' : 'Pending'}
             </span>
-            <p className='text-text-100 col-[1/3] text-lg'>{description}</p>
+            <p className='col-[1/3] text-lg text-text-100'>{description}</p>
             <div className='col-span-full row-start-3 flex items-center gap-4 md:col-start-3 md:row-span-full print:hidden'>
                 <button
                     className='btn flex-1 py-6 disabled:cursor-not-allowed disabled:opacity-50 md:aspect-square'
@@ -40,7 +40,7 @@ export default function Task({ id, title, description, isComplet, completTask, d
                     disabled={isComplet}
                     title={`Complet ${title}`}
                 >
-                    <IconCheck size={32} className='stroke-secund-100 mx-auto' />
+                    <IconCheck size={32} className='mx-auto stroke-secund-100' />
                 </button>
                 <button
                     className='btn flex-1 py-6 disabled:cursor-not-allowed disabled:opacity-50 md:aspect-square'
@@ -48,7 +48,7 @@ export default function Task({ id, title, description, isComplet, completTask, d
                     disabled={!isComplet}
                     title={`Delete ${title}`}
                 >
-                    <IconTrash size={32} className='stroke-secund-100 mx-auto' />
+                    <IconTrash size={32} className='mx-auto stroke-secund-100' />
                 </button>
             </div>
         </article>
