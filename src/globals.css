@@ -2,7 +2,7 @@
 
 :root {
     --first-color: skyblue;
-    --secund-color: #eeeeff;
+    --secund-color: #e1e1ee;
     --text-color: #303040;
 }
 
@@ -45,14 +45,16 @@
 
     .wrapper {
         position: relative;
+        display: grid;
         min-height: 100vh;
+        grid-template: 1fr / auto 1fr;
         background-image: linear-gradient(to bottom, var(--color-first-400), var(--secund-color));
     }
 }
 
 @layer components {
     .btn {
-        @apply -translate-y-0.75 cursor-pointer rounded-lg bg-linear-to-br from-first-25 to-first-200 px-8 py-2 text-xl font-semibold text-secund-100 shadow-base transition-all duration-50 hover:not-disabled:-translate-y-1.5 hover:not-disabled:shadow-secund active:not-disabled:translate-none active:not-disabled:shadow-none dark:from-first-100 dark:to-first-400;
+        @apply -translate-y-0.75 cursor-pointer rounded-lg bg-linear-to-br from-first-25 to-first-200 p-2 text-xl font-semibold text-secund-100 shadow-base transition-all duration-50 hover:not-disabled:-translate-y-1.5 hover:not-disabled:shadow-secund active:not-disabled:translate-none active:not-disabled:shadow-none dark:from-first-100 dark:to-first-400;
     }
 }
 

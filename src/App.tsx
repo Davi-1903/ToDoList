@@ -1,38 +1,13 @@
 import { useEffect, useState } from 'react';
-import Header from './components/Header';
+import Sidebar from './components/Sidebar';
 import New from './components/New';
 import ListTasks from './components/ListTasks';
-import Actions from './components/Actions';
+import { loadTasks } from './utils/tasks';
 import type { Task } from './interfaces/Objects';
 
 export default function App() {
     const [onAddTask, setAddTask] = useState(false);
     const [tasks, setTasks] = useState<Task[]>(loadTasks);
-
-    function loadTasks(): Task[] {
-        const storage = localStorage.getItem('tasks');
-        return storage ? JSON.parse(storage) : [];
-    }
-
-    async function copyTasks(): Promise<void> {
-        if (tasks.length === 0) return;
-
-        try {
-            await navigator.clipboard.writeText(JSON.stringify(tasks));
-            alert('Tasks copiadas para a área de transferencia');
-        } catch (err) {
-            console.error(err);
-        }
-    }
-
-    async function pasteTasks(): Promise<void> {
-        try {
-            const tasks = await navigator.clipboard.readText();
-            if (tasks) setTasks(JSON.parse(tasks));
-        } catch (err) {
-            console.error(err);
-        }
-    }
 
     function addNewTask(title: string, description: string): void {
         setTasks(prev => [
@@ -84,10 +59,11 @@ export default function App() {
     return (
         <div className='wrapper'>
             {onAddTask && <New setAddTask={setAddTask} addNewTask={addNewTask} />}
-            <Header setAddTask={setAddTask} />
-            <main className='mx-auto max-w-6xl p-6'>
-                <ListTasks tasks={tasks} completTask={completTask} deleteTask={deleteTask} />
-                <Actions pasteTasks={pasteTasks} copyTasks={copyTasks} />
+            <Sidebar tasks={tasks} setAddTask={setAddTask} setTasks={setTasks} />
+            <main className='col-span-2 sm:col-span-1'>
+                <section className='mx-auto max-w-5xl p-6'>
+                    <ListTasks tasks={tasks} completTask={completTask} deleteTask={deleteTask} />
+                </section>
             </main>
         </div>
     );

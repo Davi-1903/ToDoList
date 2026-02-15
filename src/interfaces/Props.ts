@@ -1,8 +1,10 @@
 import type { Dispatch, SetStateAction } from 'react';
 import type { Task } from './Objects';
 
-export interface HeaderProps {
+export interface SidebarProps {
+    tasks: Task[];
     setAddTask: Dispatch<SetStateAction<boolean>>;
+    setTasks: Dispatch<SetStateAction<Task[]>>;
 }
 
 export interface NewProps {
@@ -23,9 +25,4 @@ export interface ListTasksProps {
     tasks: Task[];
     completTask: (id: number) => void;
     deleteTask: (id: number) => void;
-}
-
-export interface ActionsProps {
-    pasteTasks: () => Promise<void>;
-    copyTasks: () => Promise<void>;
 }

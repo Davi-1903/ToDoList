@@ -35,7 +35,7 @@ export default function Task({ id, title, description, isComplet, completTask, d
             <p className='col-[1/3] text-lg text-text-100'>{description}</p>
             <div className='col-span-full row-start-3 flex items-center gap-4 md:col-start-3 md:row-span-full print:hidden'>
                 <button
-                    className='btn flex-1 py-6 disabled:cursor-not-allowed disabled:opacity-50 md:aspect-square'
+                    className='btn flex-1 py-6 disabled:cursor-not-allowed disabled:opacity-50 md:aspect-square md:px-8'
                     onClick={() => completTask(id)}
                     disabled={isComplet}
                     title={`Complet ${title}`}
@@ -43,7 +43,7 @@ export default function Task({ id, title, description, isComplet, completTask, d
                     <IconCheck size={32} className='mx-auto stroke-secund-100' />
                 </button>
                 <button
-                    className='btn flex-1 py-6 disabled:cursor-not-allowed disabled:opacity-50 md:aspect-square'
+                    className='btn flex-1 py-6 disabled:cursor-not-allowed disabled:opacity-50 md:aspect-square md:px-8'
                     onClick={handleDelete}
                     disabled={!isComplet}
                     title={`Delete ${title}`}
