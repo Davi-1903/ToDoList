@@ -17,16 +17,16 @@ export default function App() {
                 id: v4(),
                 title: title,
                 description: description,
-                isComplet: false,
+                isComplete: false,
             },
         ]);
     }
 
-    function completTask(id: string): void {
+    function completeTask(id: string): void {
         setTasks(prev =>
             prev.map(task => {
                 if (task.id === id) {
-                    return { ...task, isComplet: true };
+                    return { ...task, isComplete: true };
                 }
                 return task;
             }),
@@ -63,7 +63,7 @@ export default function App() {
             <Sidebar tasks={tasks} setAddTask={setAddTask} setTasks={setTasks} />
             <main className='col-span-2 sm:col-span-1'>
                 <section className='mx-auto max-w-5xl p-4'>
-                    <ListTasks tasks={tasks} completTask={completTask} deleteTask={deleteTask} />
+                    <ListTasks tasks={tasks} completeTask={completeTask} deleteTask={deleteTask} />
                 </section>
             </main>
         </div>

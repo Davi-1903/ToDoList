@@ -4,7 +4,7 @@ export interface Task {
     id: string;
     title: string;
     description: string;
-    isComplet: boolean;
+    isComplete: boolean;
 }
 
 export interface ThemeContextType {

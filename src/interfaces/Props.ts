@@ -16,13 +16,13 @@ export interface TaskProps {
     id: string;
     title: string;
     description: string;
-    isComplet: boolean;
-    completTask: (id: string) => void;
+    isComplete: boolean;
+    completeTask: (id: string) => void;
     deleteTask: (id: string) => void;
 }
 
 export interface ListTasksProps {
     tasks: Task[];
-    completTask: (id: string) => void;
+    completeTask: (id: string) => void;
     deleteTask: (id: string) => void;
 }

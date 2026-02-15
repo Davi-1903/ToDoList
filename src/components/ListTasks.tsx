@@ -1,7 +1,7 @@
 import type { ListTasksProps } from '../interfaces/Props';
 import Task from './Task';
 
-export default function ListTasks({ tasks, completTask, deleteTask }: ListTasksProps) {
+export default function ListTasks({ tasks, completeTask, deleteTask }: ListTasksProps) {
     if (tasks.length === 0)
         return (
             <h1 className='text-center text-2xl font-bold text-text-100 not-sm:mt-14 md:text-4xl dark:text-secund-100'>
@@ -11,9 +11,9 @@ export default function ListTasks({ tasks, completTask, deleteTask }: ListTasksP
     return (
         <ul className='flex flex-col gap-6 not-sm:pt-14'>
             {[...tasks]
-                .sort((a, b) => +a.isComplet - +b.isComplet) // Ordenação (incompletas antes das completas)
+                .sort((a, b) => +a.isComplete - +b.isComplete) // Ordenação (incompletas antes das completas)
                 .map(task => (
-                    <Task key={task.id} {...task} completTask={completTask} deleteTask={deleteTask} />
+                    <Task key={task.id} {...task} completeTask={completeTask} deleteTask={deleteTask} />
                 ))}
         </ul>
     );
