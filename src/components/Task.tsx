@@ -11,7 +11,7 @@ export default function Task({ id, title, description, isComplet, completTask, d
     }
 
     function handleDelete(): void {
-        if (!confirm('Você tem certeza de operação?')) return;
+        if (!confirm('Are you sure?')) return;
         setEmerge(false);
     }
 

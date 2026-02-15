@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 import Sidebar from './components/Sidebar';
 import New from './components/New';
 import ListTasks from './components/ListTasks';
-import { loadTasks } from './utils/tasks';
 import type { Task } from './interfaces/Objects';
+import { loadTasks } from './utils/tasks';
+import { v4 } from 'uuid';
 
 export default function App() {
     const [onAddTask, setAddTask] = useState(false);
@@ -13,7 +14,7 @@ export default function App() {
         setTasks(prev => [
             ...prev,
             {
-                id: prev.length + 1,
+                id: v4(),
                 title: title,
                 description: description,
                 isComplet: false,
@@ -21,7 +22,7 @@ export default function App() {
         ]);
     }
 
-    function completTask(id: number): void {
+    function completTask(id: string): void {
         setTasks(prev =>
             prev.map(task => {
                 if (task.id === id) {
@@ -32,7 +33,7 @@ export default function App() {
         );
     }
 
-    function deleteTask(id: number): void {
+    function deleteTask(id: string): void {
         setTasks(prev => prev.filter(task => task.id !== id));
     }
 

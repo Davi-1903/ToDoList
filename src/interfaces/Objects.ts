@@ -1,7 +1,7 @@
 export type Theme = 'light' | 'dark';
 
 export interface Task {
-    id: number;
+    id: string;
     title: string;
     description: string;
     isComplet: boolean;

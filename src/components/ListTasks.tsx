@@ -10,14 +10,11 @@ export default function ListTasks({ tasks, completTask, deleteTask }: ListTasksP
         );
     return (
         <ul className='flex flex-col gap-6 not-sm:pt-14'>
-            {tasks.map(task => {
-                if (!task.isComplet)
-                    return <Task key={task.id} {...task} completTask={completTask} deleteTask={deleteTask} />;
-            })}
-            {tasks.map(task => {
-                if (task.isComplet)
-                    return <Task key={task.id} {...task} completTask={completTask} deleteTask={deleteTask} />;
-            })}
+            {[...tasks]
+                .sort((a, b) => +a.isComplet - +b.isComplet) // Ordenação (incompletas antes das completas)
+                .map(task => (
+                    <Task key={task.id} {...task} completTask={completTask} deleteTask={deleteTask} />
+                ))}
         </ul>
     );
 }
