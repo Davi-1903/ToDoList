@@ -46,11 +46,11 @@ function New({ setAddTask, addNewTask }: NewProps) {
                 isClose ? 'animate-fade-out' : 'animate-fade-in',
             )}
             onAnimationEnd={onAnimationEnd}
-            onSubmit={handleSubmit}
         >
             <form
                 ref={formRef}
                 className='flex w-full max-w-sm flex-col gap-6 rounded-2xl bg-secund-100 px-4 py-6 shadow-xl shadow-black/25'
+                onSubmit={handleSubmit}
             >
                 <h2 className='text-3xl font-bold text-text-100'>New Task</h2>
                 <div>
