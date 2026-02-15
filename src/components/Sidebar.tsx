@@ -59,6 +59,7 @@ function Sidebar({ tasks, setAddTask, setTasks }: SidebarProps) {
             <button
                 className='group pointer-events-auto relative cursor-pointer rounded-br-2xl bg-secund-100 p-2 shadow-lg shadow-black/20 sm:hidden'
                 onClick={() => setOpen(true)}
+                title='Open sidebar'
             >
                 <div className='absolute top-0 -right-4 aspect-square h-4 bg-secund-100 mask-radial-from-transparent mask-radial-from-4 mask-radial-to-black mask-radial-to-4 mask-radial-at-bottom-right'></div>
                 <div className='absolute -bottom-4 left-0 aspect-square h-4 bg-secund-100 mask-radial-from-transparent mask-radial-from-4 mask-radial-to-black mask-radial-to-4 mask-radial-at-bottom-right'></div>
