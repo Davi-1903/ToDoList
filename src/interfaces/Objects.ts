@@ -6,3 +6,8 @@ export interface Task {
     description: string;
     isComplet: boolean;
 }
+
+export interface ThemeContextType {
+    theme: Theme;
+    toggleTheme: () => void;
+}

@@ -18,7 +18,7 @@ export default function Task({ id, title, description, isComplet, completTask, d
     return (
         <article
             className={clsx(
-                'grid gap-4 rounded-xl bg-secund-100 p-4 grid-task-sm not-print:shadow-lg not-print:shadow-secund-50/50 md:grid-task-lg print:border-2 print:text-text-100',
+                'grid gap-4 rounded-xl bg-secund-100 p-4 grid-task-sm not-print:shadow-lg not-print:shadow-gray-900/20 md:grid-task-lg print:border-2 print:text-text-100',
                 emerge ? 'animate-explosion' : 'animate-implosion',
             )}
             onAnimationEnd={onAnimationEnd}

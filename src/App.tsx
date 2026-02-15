@@ -61,7 +61,7 @@ export default function App() {
             {onAddTask && <New setAddTask={setAddTask} addNewTask={addNewTask} />}
             <Sidebar tasks={tasks} setAddTask={setAddTask} setTasks={setTasks} />
             <main className='col-span-2 sm:col-span-1'>
-                <section className='mx-auto max-w-5xl p-6'>
+                <section className='mx-auto max-w-5xl p-4'>
                     <ListTasks tasks={tasks} completTask={completTask} deleteTask={deleteTask} />
                 </section>
             </main>

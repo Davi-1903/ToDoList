@@ -1,13 +1,12 @@
 @import 'tailwindcss';
 
 :root {
-    --first-color: skyblue;
+    --first-color: #56a5dd;
     --secund-color: #e1e1ee;
     --text-color: #303040;
 }
 
 .dark {
-    --first-color: #56a5dd;
     --secund-color: #0c1117;
     --text-color: #d0d0c0;
 }
@@ -48,7 +47,7 @@
         display: grid;
         min-height: 100vh;
         grid-template: 1fr / auto 1fr;
-        background-image: linear-gradient(to bottom, var(--color-first-400), var(--secund-color));
+        background-image: linear-gradient(to bottom, var(--color-first-400), var(--color-secund-200));
     }
 }
 
