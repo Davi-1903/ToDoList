@@ -3,8 +3,6 @@
     <h1 style="border-bottom: none">ToDoList</h1>
 </div>
 
----
-
 Uma simples lista de tarefas com `React` que roda apenas no navegador.
 
 ## ▶️ Como executar
